@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="PDC2_CFF" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="Headers/;" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/PDC2_test2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="/usr/include" />
+					<Add directory="/home/bendimerad/caffe/distribute/include" />
+					<Add directory="/usr/include/hdf5/serial" />
+				</Compiler>
+				<Linker>
+					<Add option="-lboost_filesystem" />
+					<Add option="-lboost_system" />
+					<Add option="-lgflags" />
+					<Add option="-lglog" />
+					<Add option="-lprotobuf" />
+					<Add option="-lcaffe" />
+					<Add option="-lopencv_calib3d -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_highgui -lopencv_imgproc -lopencv_ml -lopencv_objdetect -lopencv_photo  -lopencv_stitching -lopencv_superres -lopencv_ts -lopencv_video -lopencv_videostab" />
+					<Add directory="/home/bendimerad/caffe/distribute/lib" />
+					<Add directory="/usr/lib/x86_64-linux-gnu" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/PDC2_test2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Classifier.cpp" />
+		<Unit filename="Classifier.hpp" />
+		<Unit filename="Drawer.cpp" />
+		<Unit filename="Drawer.hpp" />
+		<Unit filename="FaceFinder.cpp" />
+		<Unit filename="FaceFinder.hpp" />
+		<Unit filename="MyPixel.hpp" />
+		<Unit filename="Window.cpp" />
+		<Unit filename="Window.hpp" />
+		<Unit filename="WindowInformation.cpp" />
+		<Unit filename="WindowInformation.hpp" />
+		<Unit filename="WindowsIterator.cpp" />
+		<Unit filename="WindowsIterator.hpp" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
