@@ -62,6 +62,7 @@ int main(int argc, char** argv)
     }*/
     FaceFinder *faceFinder=new FaceFinder("facenet_train_test.prototxt","facenet.caffemodel");
     faceFinder->FindFace("Picture2.png","Picture2_face_found.png");
+
     //faceFinder->FindFace("example_png.png","example_png_face_found.pgm");
 
 }
