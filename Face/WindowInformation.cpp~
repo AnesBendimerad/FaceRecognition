@@ -1,0 +1,15 @@
+#include "WindowInformation.hpp"
+WindowInformation::WindowInformation(Pixel originalStartingPixel,Size originalSize){
+WindowInformation::originalStartingPixel=originalStartingPixel;
+WindowInformation::originalSize=originalSize:
+}
+
+WindowInformation::getOriginalStartingPixel()
+{
+    return WindowInformation::originalStartingPixel;
+}
+
+WindowInformation::getOriginalSize()
+{
+    return WindowInformation::originalSize;
+}

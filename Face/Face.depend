@@ -1,0 +1,97 @@
+# depslib dependency file v1.0
+1447766551 source:/home/maha/Face/Classifier.cpp
+	"Classifier.hpp"
+
+1447766551 /home/maha/Face/Classifier.hpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+
+1447801447 source:/home/maha/Face/Drawer.cpp
+	"Drawer.hpp"
+
+1447766551 /home/maha/Face/Drawer.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<vector>
+	"WindowInformation.hpp"
+
+1447891030 /home/maha/Face/WindowInformation.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	"MyPixel.hpp"
+
+1447766551 /home/maha/Face/MyPixel.hpp
+
+1447925853 source:/home/maha/Face/FaceFinder.cpp
+	"FaceFinder.hpp"
+	"MeanShift.h"
+	<iostream>
+
+1447766551 /home/maha/Face/FaceFinder.hpp
+	"Window.hpp"
+	"Classifier.hpp"
+	"WindowsIterator.hpp"
+	"Drawer.hpp"
+
+1447766551 /home/maha/Face/Window.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	"WindowInformation.hpp"
+
+1447766551 /home/maha/Face/WindowsIterator.hpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+	"Window.hpp"
+
+1448311265 source:/home/maha/Face/main.cpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+	"FaceFinder.hpp"
+	"MeanShift.h"
+
+1447766551 source:/home/maha/Face/Window.cpp
+	"Window.hpp"
+
+1447891038 source:/home/maha/Face/WindowInformation.cpp
+	"WindowInformation.hpp"
+
+1447766551 source:/home/maha/Face/WindowsIterator.cpp
+	"WindowsIterator.hpp"
+
+1448299276 source:/home/maha/Face/MeanShift.cpp
+	"MeanShift.h"
+	<fstream>
+	<iostream>
+	<string>
+
+1448311052 /home/maha/Face/MeanShift.h
+	<vector>
+	"WindowInformation.hpp"
+
