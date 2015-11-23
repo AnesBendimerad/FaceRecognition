@@ -1,5 +1,7 @@
 #include "FaceFinder.hpp"
-
+#include "MeanShift.h"
+#include <iostream>
+using namespace std;
 
 FaceFinder::FaceFinder(const string& model_file,const string& trained_file)
 {
@@ -53,7 +55,9 @@ int FaceFinder::GetWindowLabel(vector<float> scores)
     }*/
 }
 
-void FaceFinder::CleanFaceWindows(vector <WindowInformation> * faceWindows)
+void FaceFinder::CleanFaceWindows(vector <WindowInformation> *faceWindows)
 {
-    // choose the most relevant windows in the vector
+    cout<<"Cleaning..."<<endl;
+    MeanShift meanShift(faceWindows);
+    meanShift.process();
 }
