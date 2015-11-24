@@ -13,6 +13,44 @@ WindowsIterator::WindowsIterator(Mat * originalImage)
     WindowsIterator::imageInitialSize=image.size();
 }
 
+WindowsIterator::WindowsIterator (Mat * originalImage,int maxInitialSize)
+{
+    WindowsIterator::image=originalImage->clone();
+    WindowsIterator::resizingRatio=1.2;
+    WindowsIterator::step=1;
+    WindowsIterator::windowSize.height=36;
+    WindowsIterator::windowSize.width=36;
+    WindowsIterator::currentStartingPixel.col=0;
+    WindowsIterator::currentStartingPixel.row=0;
+    if (image.size().height<=maxInitialSize && image.size().width<=maxInitialSize)
+    {
+        WindowsIterator::windowOriginalSize.height=36;
+        WindowsIterator::windowOriginalSize.width=36;
+        WindowsIterator::imageInitialSize=image.size();
+    }
+    else
+    {
+        Size oldSize=image.size();
+        Size newSize;
+        if (oldSize.height>oldSize.width)
+        {
+            newSize.height=maxInitialSize;
+            newSize.width=int(oldSize.width*newSize.height/oldSize.height);
+        }
+        else
+        {
+            newSize.width=maxInitialSize;
+            newSize.height=int(oldSize.height*newSize.width/oldSize.width);
+        }
+        WindowsIterator::windowOriginalSize.height=36*oldSize.height/newSize.height;
+        WindowsIterator::windowOriginalSize.width=36*oldSize.width/newSize.width;
+        WindowsIterator::imageInitialSize=oldSize;
+        cv::resize(image,image,newSize);
+
+    }
+}
+
+
 void WindowsIterator::SetResizingRatio(double resizingRatio)
 {
     WindowsIterator::resizingRatio=resizingRatio;
@@ -23,8 +61,9 @@ void WindowsIterator::SetStep(int step)
 }
 void WindowsIterator::SetWindowSize(cv::Size windowSize)
 {
+    windowOriginalSize.width=windowOriginalSize.width*windowSize.width/(WindowsIterator::windowSize.width);
+    windowOriginalSize.height=windowOriginalSize.height*windowSize.height/(WindowsIterator::windowSize.height);
     WindowsIterator::windowSize=windowSize;
-    WindowsIterator::windowOriginalSize=windowSize;
 }
 Window * WindowsIterator::GetNextWindow()
 {

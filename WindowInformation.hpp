@@ -10,8 +10,11 @@ class WindowInformation {
         WindowInformation(MyPixel originalStartingPixel,Size originalSize);
         MyPixel GetOriginalStartingPixel();
         Size GetOriginalSize();
+        float GetScore();
+        void SetScore(float score);
     private :
     MyPixel originalStartingPixel;
     Size originalSize;
+    float score;
 };
 #endif

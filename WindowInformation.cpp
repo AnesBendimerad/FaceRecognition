@@ -14,3 +14,11 @@ Size WindowInformation::GetOriginalSize()
 {
     return WindowInformation::originalSize;
 }
+float WindowInformation::GetScore()
+{
+    return score;
+}
+void WindowInformation::SetScore(float score)
+{
+    WindowInformation::score=score;
+}

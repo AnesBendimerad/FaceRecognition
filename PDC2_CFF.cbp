@@ -53,6 +53,8 @@
 		<Unit filename="Drawer.hpp" />
 		<Unit filename="FaceFinder.cpp" />
 		<Unit filename="FaceFinder.hpp" />
+		<Unit filename="MeanShift.cpp" />
+		<Unit filename="MeanShift.h" />
 		<Unit filename="MyPixel.hpp" />
 		<Unit filename="Window.cpp" />
 		<Unit filename="Window.hpp" />

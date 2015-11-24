@@ -61,7 +61,8 @@ int main(int argc, char** argv)
         i++;
     }*/
     FaceFinder *faceFinder=new FaceFinder("facenet_train_test.prototxt","facenet.caffemodel");
-    faceFinder->FindFace("Picture2.png","Picture2_face_found.png");
+   // faceFinder->setMaxInitialSize(200);
+    faceFinder->FindFace("images/Picture2.png","results/Picture2_face_found_withClustering.png");
 
     //faceFinder->FindFace("example_png.png","example_png_face_found.pgm");
 

@@ -19,6 +19,7 @@ using namespace std;
 class WindowsIterator {
     public :
     WindowsIterator (Mat * originalImage);
+    WindowsIterator (Mat * originalImage,int maxInitialSize);
     void SetResizingRatio(double resizingRatio);
     void SetStep(int step);
     void SetWindowSize(Size windowSize);

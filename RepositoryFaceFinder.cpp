@@ -1,0 +1,37 @@
+#include "RepositoryFaceFinder.hpp"
+RepositoryFaceFinder::RepositoryFaceFinder(const string& model_file,const string& trained_file)
+{
+    faceFinder=new FaceFinder(model_file,trained_file);
+}
+void RepositoryFaceFinder::run(string inputRepositoryPath,string outputRepositoryPath,string resultTextFilePath)
+{
+    struct dirent *fileEntity;
+    vector<string> pathList;
+    DIR *inputDirectory = opendir(inputRepositoryPath.c_str());
+    if (inputDirectory == NULL) {
+		throw runtime_error("Failed when openning input directory");
+	}
+    while ((fileEntity = readdir(inputDirectory)) != NULL) {
+        if (strcmp(fileEntity->d_name, ".") != 0 && strcmp(fileEntity->d_name, "..") != 0)
+        {
+            pathList.push_back(string(fileEntity->d_name));
+        }
+    }
+    DIR *outputDirectory = opendir(outputRepositoryPath.c_str());
+    if (outputDirectory==NULL)
+    {
+        throw runtime_error("Failed when openning output directory");
+    }
+    ofstream resultsFile (resultTextFilePath.c_str(), ofstream::out);
+    vector<string> results;
+    for (int i=0;i<pathList.size();i++)
+    {
+        results=faceFinder->FindFace(inputRepositoryPath + "/" + pathList[i],outputRepositoryPath+ "/" + pathList[i]);
+        for (int j=0;j<results.size();j++){
+            resultsFile<<results[j]<<endl;
+        }
+    }
+    resultsFile.close();
+    closedir(inputDirectory);
+    closedir(outputDirectory);
+}

@@ -6941,3 +6941,98 @@
 
 1447680393 /home/bendimerad/Desktop/PDC2_CFF/MyPixel.hpp
 
+1448313583 source:/home/bendimerad/Desktop/PDC2/FaceRecognition-master/Classifier.cpp
+	"Classifier.hpp"
+
+1448313583 /home/bendimerad/Desktop/PDC2/FaceRecognition-master/Classifier.hpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+
+1448313583 source:/home/bendimerad/Desktop/PDC2/FaceRecognition-master/Drawer.cpp
+	"Drawer.hpp"
+
+1448313583 /home/bendimerad/Desktop/PDC2/FaceRecognition-master/Drawer.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<vector>
+	"WindowInformation.hpp"
+
+1448313990 /home/bendimerad/Desktop/PDC2/FaceRecognition-master/WindowInformation.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	"MyPixel.hpp"
+
+1448313583 /home/bendimerad/Desktop/PDC2/FaceRecognition-master/MyPixel.hpp
+
+1448350827 source:/home/bendimerad/Desktop/PDC2/FaceRecognition-master/main.cpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+	"FaceFinder.hpp"
+
+1448351360 /home/bendimerad/Desktop/PDC2/FaceRecognition-master/FaceFinder.hpp
+	<string>
+	"Window.hpp"
+	"Classifier.hpp"
+	"WindowsIterator.hpp"
+	"Drawer.hpp"
+	"MeanShift.h"
+
+1448313583 /home/bendimerad/Desktop/PDC2/FaceRecognition-master/Window.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	"WindowInformation.hpp"
+
+1448301067 /home/bendimerad/Desktop/PDC2/FaceRecognition-master/WindowsIterator.hpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+	"Window.hpp"
+
+1448313583 source:/home/bendimerad/Desktop/PDC2/FaceRecognition-master/MeanShift.cpp
+	"MeanShift.h"
+	<fstream>
+	<iostream>
+	<string>
+
+1448313583 /home/bendimerad/Desktop/PDC2/FaceRecognition-master/MeanShift.h
+	<vector>
+	"WindowInformation.hpp"
+
+1448313583 source:/home/bendimerad/Desktop/PDC2/FaceRecognition-master/Window.cpp
+	"Window.hpp"
+
+1448313998 source:/home/bendimerad/Desktop/PDC2/FaceRecognition-master/WindowInformation.cpp
+	"WindowInformation.hpp"
+
+1448302958 source:/home/bendimerad/Desktop/PDC2/FaceRecognition-master/WindowsIterator.cpp
+	"WindowsIterator.hpp"
+
+1448350795 source:/home/bendimerad/Desktop/PDC2/FaceRecognition-master/FaceFinder.cpp
+	"FaceFinder.hpp"
+

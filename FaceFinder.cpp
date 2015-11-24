@@ -1,15 +1,22 @@
 #include "FaceFinder.hpp"
-#include "MeanShift.h"
-#include <iostream>
-using namespace std;
+
 
 FaceFinder::FaceFinder(const string& model_file,const string& trained_file)
 {
     classifier=new Classifier(model_file,trained_file);
+    maxInitialSize=-1;
 }
-void FaceFinder::Find(Mat* img)
+vector<string> FaceFinder::Find(Mat* img,string fileName)
 {
-    WindowsIterator * windowsIterator=new WindowsIterator(img);
+    WindowsIterator * windowsIterator;
+    if (maxInitialSize==-1)
+    {
+        windowsIterator=new WindowsIterator(img);
+    }
+    else
+    {
+        windowsIterator=new WindowsIterator(img,maxInitialSize);
+    }
     vector<WindowInformation> faceWindows;
     Window *window;
     vector<float> scores;
@@ -17,28 +24,58 @@ void FaceFinder::Find(Mat* img)
         scores=classifier->Classify(window->GetWindowImage());
         if (GetWindowLabel(scores)==1)
         {
+            window->GetWindowInformation()->SetScore(scores[1]);
             faceWindows.push_back(*(window->GetWindowInformation()));
         }
     }
     CleanFaceWindows(&faceWindows);
     Drawer *drawer=new Drawer();
     drawer->DrawFaceWindows(img,&faceWindows);
-
+    vector<string> resultTexts;
+    for (unsigned int i=0;i<faceWindows.size();i++)
+    {
+        std::ostringstream myStringStream;
+        myStringStream<<fileName<<" ";
+        myStringStream<<faceWindows[i].GetScore()<<" ";
+        myStringStream<<faceWindows[i].GetOriginalStartingPixel().col<<" ";
+        myStringStream<<faceWindows[i].GetOriginalStartingPixel().row<<" ";
+        myStringStream<<faceWindows[i].GetOriginalSize().width<<" ";
+        myStringStream<<faceWindows[i].GetOriginalSize().height;
+        string myString(myStringStream.str());
+        resultTexts.push_back(myString);
+    }
+    return resultTexts;
 }
 
-void FaceFinder::FindFace(const string& inputImgFile,const string& outputImgFile)
+vector<string> FaceFinder::FindFace(const string& inputImgFile,const string& outputImgFile)
 {
     Mat image= imread(inputImgFile, -1);
-    Find(&image);
+    int lastindex = inputImgFile.find_last_of(".");
+    string fileName;
+    if (lastindex<=inputImgFile.size())
+    {
+        fileName=inputImgFile.substr(0, lastindex);
+    }
+    else
+    {
+        fileName=inputImgFile;
+    }
+    lastindex = fileName.find_last_of("/");
+    if (lastindex<=fileName.size())
+    {
+        fileName=fileName.substr(lastindex+1, fileName.size());
+    }
+
+    vector<string> resultTexts=Find(&image,fileName);
     imwrite(outputImgFile.c_str(),image);
-    // imwrite : write the image in the outputImgFile
+    return resultTexts;
 }
 int FaceFinder::GetWindowLabel(vector<float> scores)
 {
     if (scores.size()!=2){
         return -1;
     }
-    if (scores[1]>0.6){
+    if (scores[1]>FACE_THRESHOLD){
         return 1;
     }
     else {
@@ -54,7 +91,9 @@ int FaceFinder::GetWindowLabel(vector<float> scores)
         return 1;
     }*/
 }
-
+void FaceFinder::setMaxInitialSize(int maxInitialSize){
+    FaceFinder::maxInitialSize=maxInitialSize;
+}
 void FaceFinder::CleanFaceWindows(vector <WindowInformation> *faceWindows)
 {
     cout<<"Cleaning..."<<endl;
