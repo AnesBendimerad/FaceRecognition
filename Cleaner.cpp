@@ -7,8 +7,8 @@ using namespace std;
 Cleaner::Cleaner(vector<WindowInformation>* faceWindows)
 {
 	this->faceWindows = faceWindows;
-	this->quantile=DEFAUTLT_QUANTILE
-	this->clusteringAlgorithm=CLUSTERING_RDBSCAN
+    this->quantile=DEFAUTLT_QUANTILE;
+    this->clusteringAlgorithm=CLUSTERING_RDBSCAN;
 }
 
 Cleaner::~Cleaner()
@@ -74,9 +74,9 @@ vector<WindowInformation>* Cleaner::read_from_csv()
 
 void Cleaner::process()
 {
-   std::stringstream stream;
-   
-   cmd.append(" ").append(this->clusteringAlgorithm).append(" ").append(WINDOWS_CSV).append(" ").append(CLUSTERS_CSV).append(" ").append(this->quantile);
+    std::stringstream stream;
+    string cmd = "python clean.py ";
+    cmd.append(" ").append(to_string(this->clusteringAlgorithm)).append(" ").append(WINDOWS_CSV).append(" ").append(CLUSTERS_CSV).append(" ").append(to_string(this->quantile));
 
    //export data
    write_to_csv();

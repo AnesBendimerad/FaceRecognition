@@ -1,6 +1,6 @@
 #ifndef CLEANER_H
 #define CLEANER_H
-#include<vector>
+
 #include "WindowInformation.hpp"
 
 #define CLUSTERING_MEANSHIFT 0
@@ -9,6 +9,7 @@
 #define CLUSTERS_CSV "~cluster.csv"
 #define DEFAUTLT_QUANTILE 0.2
 
+using namespace std;
 class Cleaner
 {
     public:
