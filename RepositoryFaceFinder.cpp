@@ -26,9 +26,13 @@ void RepositoryFaceFinder::run(string inputRepositoryPath,string outputRepositor
     vector<string> results;
     for (int i=0;i<pathList.size();i++)
     {
-        results=faceFinder->FindFace(inputRepositoryPath + "/" + pathList[i],outputRepositoryPath+ "/" + pathList[i]);
-        for (int j=0;j<results.size();j++){
-            resultsFile<<results[j]<<endl;
+        try {
+            results=faceFinder->FindFace(inputRepositoryPath + "/" + pathList[i],outputRepositoryPath+ "/" + pathList[i]);
+            for (int j=0;j<results.size();j++){
+                resultsFile<<results[j]<<endl;
+            }
+        } catch (Exception exception) {
+            cout << exception.msg<<" with "<< inputRepositoryPath + "/" + pathList[i] << endl;
         }
     }
     resultsFile.close();

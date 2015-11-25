@@ -77,7 +77,12 @@ void Cleaner::process()
     std::stringstream stream;
     string cmd = "python clean.py ";
     cmd.append(" ").append(to_string(this->clusteringAlgorithm)).append(" ").append(WINDOWS_CSV).append(" ").append(CLUSTERS_CSV).append(" ").append(to_string(this->quantile));
-
+    
+   if (this->faceWindows->size()==0)
+   {
+       return;
+   }
+   
    //export data
    write_to_csv();
 
