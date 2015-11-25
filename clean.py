@@ -6,7 +6,10 @@ from sklearn.cluster import MeanShift,DBSCAN, estimate_bandwidth
 from scipy.stats import norm
 
 RECTANGLES=['x','y','width','height','score']
-  
+
+#0 For mean cluster representative method and 1 for argmax
+CLUSTER_REPRESENTATIVE_METHOD=1
+
 def Mean_Shift(sourcePath="input.csv",outputPath="output.csv",quantile=0.3):
     
     #importer les donnees
@@ -29,13 +32,20 @@ def Mean_Shift(sourcePath="input.csv",outputPath="output.csv",quantile=0.3):
     clusters_representative=[0]*clusters_number
     clusters_size=[0]*clusters_number
     for cluster_id in labels_unique :
+        cluster_id=int(cluster_id)
         windows_of_cluster_id=windows[(clusters==cluster_id)]
-        center_of_cluster_id = cluster_centers[cluster_id]
         cluster_id_size=len(windows_of_cluster_id)
-        mean_width = (1.*sum(windows_of_cluster_id[:,2]))/cluster_id_size
-        mean_height = (1.*sum(windows_of_cluster_id[:,3]))/cluster_id_size
-        mean_score = (1.*sum(windows_of_cluster_id[:,4]))/cluster_id_size
-        clusters_representative[cluster_id]=[max(0,center_of_cluster_id[0]-mean_width/2),max(0,center_of_cluster_id[1]-mean_height/2),mean_width,mean_height,mean_score]
+        
+        if (CLUSTER_REPRESENTATIVE_METHOD==0) :
+            center_of_cluster_id = cluster_centers[cluster_id]
+            mean_width = (1.*sum(windows_of_cluster_id[:,2]))/cluster_id_size
+            mean_height = (1.*sum(windows_of_cluster_id[:,3]))/cluster_id_size
+            mean_score = (1.*sum(windows_of_cluster_id[:,4]))/cluster_id_size
+            clusters_representative[cluster_id]=[max(0,center_of_cluster_id[0]-mean_width/2),max(0,center_of_cluster_id[1]-mean_height/2),mean_width,mean_height,mean_score]
+        else :
+            clusters_representative[cluster_id]=max(windows_of_cluster_id,key=lambda element:element[4])[:]
+        
+
         clusters_size[cluster_id]=cluster_id_size
     
     #Clean noisy clusters
@@ -81,15 +91,19 @@ def RDBSCAN(sourcePath="input.csv",outputPath="output.csv",quantile=0.3):
     clusters_representative=[0]*clusters_number
     clusters_size=np.array([0]*clusters_number)
     for cluster_id in labels_unique :
+        cluster_id=int(cluster_id)
         windows_of_cluster_id=windows[(clusters==cluster_id)]
         cluster_id_size=len(windows_of_cluster_id)
-        mean_x    = max(0,int((1.*sum(windows_of_cluster_id[:,0]))/cluster_id_size))
-        mean_y    = max(0,int((1.*sum(windows_of_cluster_id[:,1]))/cluster_id_size))
-        mean_width  = int((1.*sum(windows_of_cluster_id[:,2]))/cluster_id_size)
-        mean_height = int((1.*sum(windows_of_cluster_id[:,3]))/cluster_id_size)
-        mean_score  = (1.*sum(windows_of_cluster_id[:,4]))/cluster_id_size
-        cluster_id=int(cluster_id)
-        clusters_representative[cluster_id]=[mean_x,mean_y,mean_width,mean_height,mean_score]
+        if (CLUSTER_REPRESENTATIVE_METHOD==0) :
+            mean_x    = max(0,int((1.*sum(windows_of_cluster_id[:,0]))/cluster_id_size))
+            mean_y    = max(0,int((1.*sum(windows_of_cluster_id[:,1]))/cluster_id_size))
+            mean_width  = int((1.*sum(windows_of_cluster_id[:,2]))/cluster_id_size)
+            mean_height = int((1.*sum(windows_of_cluster_id[:,3]))/cluster_id_size)
+            mean_score  = (1.*sum(windows_of_cluster_id[:,4]))/cluster_id_size
+            clusters_representative[cluster_id]=[mean_x,mean_y,mean_width,mean_height,mean_score]
+        else :
+            clusters_representative[cluster_id]=max(windows_of_cluster_id,key=lambda element:element[4])[:]
+        
         clusters_size[cluster_id]=cluster_id_size
 
     #Clean noisy clusters
