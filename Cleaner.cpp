@@ -6,7 +6,9 @@ using namespace std;
 
 Cleaner::Cleaner(vector<WindowInformation>* faceWindows)
 {
-this->faceWindows = faceWindows;
+	this->faceWindows = faceWindows;
+	this->quantile=DEFAUTLT_QUANTILE
+	this->clusteringAlgorithm=CLUSTERING_RDBSCAN
 }
 
 Cleaner::~Cleaner()
@@ -15,14 +17,14 @@ Cleaner::~Cleaner()
 void Cleaner::write_to_csv()
 {
       ofstream myfile;
-      myfile.open ("input.csv");
+      myfile.open (WINDOWS_CSV);
 
       myfile <<"x,y,width,height,score\n";
 
       for(unsigned int i=0;i<faceWindows->size();i++) {
-        myfile <<faceWindows->at(i).GetOriginalStartingPixel().row;
-        myfile <<",";
         myfile <<faceWindows->at(i).GetOriginalStartingPixel().col;
+        myfile <<",";
+        myfile <<faceWindows->at(i).GetOriginalStartingPixel().row;
         myfile <<",";
         myfile <<faceWindows->at(i).GetOriginalSize().width;
         myfile <<",";
@@ -39,7 +41,7 @@ vector<WindowInformation>* Cleaner::read_from_csv()
 {
      ifstream myfile;
      string line,cell;
-     myfile.open ("output.csv");
+     myfile.open (CLUSTERS_CSV);
      vector<WindowInformation> *result = new vector<WindowInformation> ();
      Size originalSize;
      MyPixel originalPixel;
@@ -53,9 +55,9 @@ vector<WindowInformation>* Cleaner::read_from_csv()
         stringstream  lineStream(line);
         getline(lineStream,cell,',');
         getline(lineStream,cell,',');
-        originalPixel.row = atoi(cell.c_str());
-        getline(lineStream,cell,',');
         originalPixel.col = atoi(cell.c_str());
+        getline(lineStream,cell,',');
+        originalPixel.row = atoi(cell.c_str());
         getline(lineStream,cell,',');
         originalSize.width = atof(cell.c_str());
         getline(lineStream,cell,',');
@@ -73,19 +75,8 @@ vector<WindowInformation>* Cleaner::read_from_csv()
 void Cleaner::process()
 {
    std::stringstream stream;
-   string algorithm;
-   string quantile;
-   string cmd ="python clean.py";
-
-   cout<<"Choose clustering algorithm, 0 for MeanShift and 1 for DBSCAN:"<<endl;
-   cin>>algorithm;
-
-   cout<<"Choose quantile between 0 and 1:"<<endl;
-   cin>>quantile;
-
-   cmd.append(" ").append(algorithm).append(" ").append("input.csv").append(" ").append("output.csv").append(" ").append(quantile);
-
-   cout<<"Cleaning..."<<endl;
+   
+   cmd.append(" ").append(this->clusteringAlgorithm).append(" ").append(WINDOWS_CSV).append(" ").append(CLUSTERS_CSV).append(" ").append(this->quantile);
 
    //export data
    write_to_csv();
