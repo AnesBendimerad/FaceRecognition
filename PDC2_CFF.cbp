@@ -49,12 +49,12 @@
 		</Compiler>
 		<Unit filename="Classifier.cpp" />
 		<Unit filename="Classifier.hpp" />
+		<Unit filename="Cleaner.cpp" />
+		<Unit filename="Cleaner.h" />
 		<Unit filename="Drawer.cpp" />
 		<Unit filename="Drawer.hpp" />
 		<Unit filename="FaceFinder.cpp" />
 		<Unit filename="FaceFinder.hpp" />
-		<Unit filename="MeanShift.cpp" />
-		<Unit filename="MeanShift.h" />
 		<Unit filename="MyPixel.hpp" />
 		<Unit filename="RepositoryFaceFinder.cpp" />
 		<Unit filename="RepositoryFaceFinder.hpp" />

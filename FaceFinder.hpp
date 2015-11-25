@@ -5,7 +5,7 @@
 #include "Classifier.hpp"
 #include "WindowsIterator.hpp"
 #include "Drawer.hpp"
-#include "MeanShift.h"
+#include "Cleaner.h"
 #define FACE_THRESHOLD 0.6
 using namespace std;
 class FaceFinder

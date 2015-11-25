@@ -13,6 +13,7 @@
 #include <utility>
 #include <vector>
 #include "RepositoryFaceFinder.hpp"
+#include "FaceFinder.hpp"
 
 using namespace std;
 
@@ -20,8 +21,13 @@ using namespace std;
 int main(int argc, char** argv)
 {
 
-    RepositoryFaceFinder * repFaceFinder=new RepositoryFaceFinder(new FaceFinder("facenet_train_test.prototxt","facenet.caffemodel"));
-    repFaceFinder->run("images2","results2","resultText.txt");
+   // RepositoryFaceFinder * repFaceFinder=new RepositoryFaceFinder(new FaceFinder("facenet_train_test.prototxt","facenet.caffemodel"));
+    //repFaceFinder->run("images2","results2","resultText.txt");
 
+    FaceFinder *faceFinder=new FaceFinder("facenet_train_test.prototxt","facenet.caffemodel");
+   // faceFinder->setMaxInitialSize(200);
+    faceFinder->SetMaxInitialSize(150);
+
+    faceFinder->FindFace("images/faceface.jpg","results/lwjehkbir.jpg");
 
 }

@@ -29,7 +29,7 @@ vector<string> FaceFinder::Find(Mat* img,string fileName)
             faceWindows.push_back(*(window->GetWindowInformation()));
         }
     }
-    //CleanFaceWindows(&faceWindows);
+    CleanFaceWindows(&faceWindows);
     Drawer *drawer=new Drawer();
     drawer->DrawFaceWindows(img,&faceWindows);
     vector<string> resultTexts;
@@ -101,7 +101,6 @@ void FaceFinder::SetFaceThreshold(float faceThreshold)
 }
 void FaceFinder::CleanFaceWindows(vector <WindowInformation> *faceWindows)
 {
-    cout<<"Cleaning..."<<endl;
-    MeanShift meanShift(faceWindows);
-    meanShift.process();
+    Cleaner cleaner(faceWindows);
+    cleaner.process();
 }
