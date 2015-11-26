@@ -6,6 +6,7 @@ from sklearn.cluster import MeanShift,DBSCAN, estimate_bandwidth
 from scipy.stats import norm
 
 RECTANGLES=['x','y','width','height','score']
+DEFAULT_DBSCAN_EPS=0.5
 
 #0 For mean cluster representative method and 1 for argmax
 CLUSTER_REPRESENTATIVE_METHOD=1
@@ -80,7 +81,7 @@ def RDBSCAN(sourcePath="input.csv",outputPath="output.csv",quantile=0.3):
     windows=data[RECTANGLES].values
     
     #Clustering
-    db = DBSCAN(eps=1.1,min_samples=1,metric=windowMetric)
+    db = DBSCAN(eps=DEFAULT_DBSCAN_EPS,min_samples=1,metric=windowMetric)
     db.fit(windows)
     clusters=db.labels_
     labels_unique = np.unique(clusters).tolist()
