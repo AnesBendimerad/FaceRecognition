@@ -6,6 +6,11 @@ FaceFinder::FaceFinder(const string& model_file,const string& trained_file)
     classifier=new Classifier(model_file,trained_file);
     maxInitialSize=-1;
     faceThreshold=FACE_THRESHOLD;
+    quantile=DEFAUTLT_QUANTILE;
+}
+void FaceFinder::SetQuantile(float quantile)
+{
+    FaceFinder::quantile=quantile;
 }
 vector<string> FaceFinder::Find(Mat* img,string fileName)
 {
@@ -18,6 +23,7 @@ vector<string> FaceFinder::Find(Mat* img,string fileName)
     {
         windowsIterator=new WindowsIterator(img,maxInitialSize);
     }
+    windowsIterator->SetWindowSize(classifier->GetInputGeometry());
     vector<WindowInformation> faceWindows;
     Window *window;
     vector<float> scores;
@@ -29,7 +35,7 @@ vector<string> FaceFinder::Find(Mat* img,string fileName)
             faceWindows.push_back(*(window->GetWindowInformation()));
         }
     }
-    CleanFaceWindows(&faceWindows);
+    //CleanFaceWindows(&faceWindows);
     Drawer *drawer=new Drawer();
     drawer->DrawFaceWindows(img,&faceWindows);
     vector<string> resultTexts;
@@ -102,5 +108,6 @@ void FaceFinder::SetFaceThreshold(float faceThreshold)
 void FaceFinder::CleanFaceWindows(vector <WindowInformation> *faceWindows)
 {
     Cleaner cleaner(faceWindows);
+    cleaner.SetQuantile(quantile);
     cleaner.process();
 }

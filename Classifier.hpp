@@ -25,6 +25,7 @@ class Classifier {
    * ordered by class name (ex : "0", "1" for face recognizer)
    */
   std::vector<float> Classify(const cv::Mat& img);
+  cv::Size GetInputGeometry();
 
  private:
 

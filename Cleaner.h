@@ -16,6 +16,7 @@ class Cleaner
         Cleaner(vector <WindowInformation> * faceWindows);
         virtual ~Cleaner();
         void process();
+        void SetQuantile(float quantile);
     protected:
     private:
 		vector <WindowInformation> * faceWindows;

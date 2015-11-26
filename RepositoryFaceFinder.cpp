@@ -27,7 +27,7 @@ void RepositoryFaceFinder::run(string inputRepositoryPath,string outputRepositor
     for (int i=0;i<pathList.size();i++)
     {
         string inputImage=inputRepositoryPath + "/" + pathList[i];
-        cout << "Detecting faces from image "<<to_string(i+1) << " : "<<inputImage << " ..." << endl;
+        cout << "Detecting faces from image "<<i+1 << " : "<<inputImage << " ..." << endl;
         try {
             results=faceFinder->FindFace(inputImage,outputRepositoryPath+ "/" + pathList[i]);
             for (int j=0;j<results.size();j++){

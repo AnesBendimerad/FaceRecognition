@@ -26,8 +26,9 @@ int main(int argc, char** argv)
 
     FaceFinder *faceFinder=new FaceFinder("facenet_train_test.prototxt","facenet.caffemodel");
    // faceFinder->setMaxInitialSize(200);
-    faceFinder->SetMaxInitialSize(150);
-
-    faceFinder->FindFace("images/faceface.jpg","results/lwjehkbir.jpg");
+    faceFinder->SetMaxInitialSize(300);
+    RepositoryFaceFinder * repFaceFinder=new RepositoryFaceFinder(faceFinder);
+    repFaceFinder->run("images2","results2","result2/resultText.txt");
+    //faceFinder->FindFace("images/faceface.jpg","results/lwjehkbir.jpg");
 
 }

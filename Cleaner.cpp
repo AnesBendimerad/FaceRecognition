@@ -14,6 +14,11 @@ Cleaner::Cleaner(vector<WindowInformation>* faceWindows)
 Cleaner::~Cleaner()
 {
 }
+
+void Cleaner::SetQuantile(float quantile)
+{
+    Cleaner::quantile=quantile;
+}
 void Cleaner::write_to_csv()
 {
       ofstream myfile;
@@ -76,13 +81,21 @@ void Cleaner::process()
 {
     std::stringstream stream;
     string cmd = "python clean.py ";
-    cmd.append(" ").append(to_string(this->clusteringAlgorithm)).append(" ").append(WINDOWS_CSV).append(" ").append(CLUSTERS_CSV).append(" ").append(to_string(this->quantile));
-    
+    std::ostringstream myStringStream;
+    myStringStream<<cmd;
+    myStringStream<<this->clusteringAlgorithm<<" ";
+    myStringStream<<WINDOWS_CSV<<" ";
+    myStringStream<<CLUSTERS_CSV<<" ";
+    myStringStream<<this->quantile<<" ";
+    string myString(myStringStream.str());
+    cmd=myString;
+
+
    if (this->faceWindows->size()==0)
    {
        return;
    }
-   
+
    //export data
    write_to_csv();
 

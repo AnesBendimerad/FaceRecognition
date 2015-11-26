@@ -6,7 +6,7 @@
 #include "WindowsIterator.hpp"
 #include "Drawer.hpp"
 #include "Cleaner.h"
-#define FACE_THRESHOLD 0.6
+#define FACE_THRESHOLD 0.5
 using namespace std;
 class FaceFinder
 {
@@ -15,6 +15,7 @@ public:
     vector<string> FindFace(const string& inputImgFile,const string& outputImgFile);
     void SetMaxInitialSize(int maxInitialSize);
     void SetFaceThreshold(float faceThreshold);
+    void SetQuantile(float quantile);
 
 private:
     vector<string> Find(Mat* img,string fileName);
@@ -26,6 +27,7 @@ private:
     Classifier * classifier;
     int maxInitialSize;
     float faceThreshold;
+    float quantile;
 
 };
 #endif

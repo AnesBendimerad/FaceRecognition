@@ -17,7 +17,10 @@ Classifier::Classifier(const string& model_file,const string& trained_file)
     CHECK(num_channels_ == 1) << "Input layer should have exactly one channel.";
     input_geometry_ = cv::Size(input_layer->width(), input_layer->height());
 }
-
+cv::Size Classifier::GetInputGeometry()
+{
+    return input_geometry_;
+}
 /* Return all predictions. */
 std::vector<float> Classifier::Classify(const cv::Mat& img)
 {
