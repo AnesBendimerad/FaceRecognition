@@ -132,4 +132,7 @@ int main(int argc, char** argv)
             }
         }
     }
+    else {
+        cout<<"you must specify a configuration file"<<endl;
+    }
 }
