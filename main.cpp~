@@ -12,7 +12,6 @@
 #include <string>
 #include <utility>
 #include <vector>
-#include <sys/stat.h>
 #include "RepositoryFaceFinder.hpp"
 #include "FaceFinder.hpp"
 
@@ -116,15 +115,14 @@ int main(int argc, char** argv)
                 if (lastindex<=inputFileName.size()){
                     inputImageDirectName=inputFileName.substr(lastindex+1, inputFileName.size());
                 }
-                DIR *outputDirectory = opendir(outputFileName.c_str());
-                if (outputDirectory!=NULL)
-                {
-                    closedir(outputDirectory);
-                }
-                else
-                {
-                    mkdir(outputFileName.c_str(),0700);
-                }
+		DIR *outputDirectory = opendir(outputFileName.c_str());
+		if (outputDirectory!=NULL)
+		{
+			closedir(outputDirectory);
+		}
+		else{
+			
+		}
                 vector<string> resultsText=faceFinder->FindFace(inputFileName,outputFileName+ "/" + inputImageDirectName);
                 ofstream resultsFile (resultFileName.c_str(), ofstream::out);
                 for (int j=0;j<resultsText.size();j++){
