@@ -21,11 +21,9 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-    //if (argc==2)
-    if (true)
+    if (argc==2)
     {
-        //string configFileName=argv[1];
-        string configFileName="configFile.txt";
+        string configFileName=argv[1];
         string inputFileName="",outputFileName="",resultFileName="",modelFileName="",trainedFileName="";
         int maxInitialSize=-1;
         float faceThreshold=-1,quantile=-1;

@@ -3,6 +3,4 @@ outputFile results3
 resultFile myResultText2.txt
 modelFile facenet_train_test.prototxt
 trainedModelFile facenet.caffemodel
-maxInitialSize 200
-faceThreshold 0.6
 quantile 0.1

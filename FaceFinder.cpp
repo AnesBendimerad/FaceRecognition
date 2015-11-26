@@ -35,7 +35,7 @@ vector<string> FaceFinder::Find(Mat* img,string fileName)
             faceWindows.push_back(*(window->GetWindowInformation()));
         }
     }
-    //CleanFaceWindows(&faceWindows);
+    CleanFaceWindows(&faceWindows);
     Drawer *drawer=new Drawer();
     drawer->DrawFaceWindows(img,&faceWindows);
     vector<string> resultTexts;
