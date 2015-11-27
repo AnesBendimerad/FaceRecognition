@@ -1,7 +1,6 @@
-inputFile images2/faceface.jpg
-outputFile results3
-resultFile myResultText2.txt
+inputFile images2
+outputFile results2
+resultFile afwResults.txt
 modelFile facenet_train_test.prototxt
 trainedModelFile facenet.caffemodel
-maxInitialSize 200
-faceThreshold 0.6
+maxInitialSize 300

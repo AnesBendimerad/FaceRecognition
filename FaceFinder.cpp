@@ -46,8 +46,8 @@ vector<string> FaceFinder::Find(Mat* img,string fileName)
         myStringStream<<faceWindows[i].GetScore()<<" ";
         myStringStream<<faceWindows[i].GetOriginalStartingPixel().col<<" ";
         myStringStream<<faceWindows[i].GetOriginalStartingPixel().row<<" ";
-        myStringStream<<faceWindows[i].GetOriginalSize().width<<" ";
-        myStringStream<<faceWindows[i].GetOriginalSize().height;
+        myStringStream<<faceWindows[i].GetOriginalStartingPixel().col+faceWindows[i].GetOriginalSize().width<<" ";
+        myStringStream<<faceWindows[i].GetOriginalStartingPixel().row+faceWindows[i].GetOriginalSize().height;
         string myString(myStringStream.str());
         resultTexts.push_back(myString);
     }
