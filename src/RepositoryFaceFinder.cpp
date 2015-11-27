@@ -24,13 +24,13 @@ void RepositoryFaceFinder::run(string inputRepositoryPath,string outputRepositor
     }
     ofstream resultsFile (resultTextFilePath.c_str(), ofstream::out);
     vector<string> results;
-    for (int i=0;i<pathList.size();i++)
+    for (unsigned int i=0;i<pathList.size();i++)
     {
         string inputImage=inputRepositoryPath + "/" + pathList[i];
         cout << "Detecting faces from image "<<i+1 << " : "<<inputImage << " ..." << endl;
         try {
             results=faceFinder->FindFace(inputImage,outputRepositoryPath+ "/" + pathList[i]);
-            for (int j=0;j<results.size();j++){
+            for (unsigned int j=0;j<results.size();j++){
                 resultsFile<<results[j]<<endl;
             }
         } catch (Exception exception) {

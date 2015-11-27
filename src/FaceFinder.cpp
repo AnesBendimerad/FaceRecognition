@@ -57,7 +57,7 @@ vector<string> FaceFinder::Find(Mat* img,string fileName)
 vector<string> FaceFinder::FindFace(const string& inputImgFile,const string& outputImgFile)
 {
     Mat image= imread(inputImgFile, -1);
-    int lastindex = inputImgFile.find_last_of(".");
+    unsigned int lastindex = inputImgFile.find_last_of(".");
     string fileName;
     if (lastindex<=inputImgFile.size())
     {

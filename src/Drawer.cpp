@@ -1,7 +1,7 @@
 #include "Drawer.hpp"
 void Drawer::DrawFaceWindows(Mat* img,vector<WindowInformation> * faceWindows)
 {
-    for (int i=0;i<faceWindows->size();i++){
+    for (unsigned int i=0;i<faceWindows->size();i++){
         DrawFaceWindow(img,&((*faceWindows)[i]));
     }
 }

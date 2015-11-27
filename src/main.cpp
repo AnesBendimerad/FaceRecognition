@@ -1,18 +1,3 @@
-#define CPU_ONLY
-#define USE_OPENCV
-#include <caffe/caffe.hpp>
-#ifdef USE_OPENCV
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#endif  // USE_OPENCV
-#include <algorithm>
-#include <iosfwd>
-#include <memory>
-#include <string>
-#include <utility>
-#include <vector>
-#include <sys/stat.h>
 #include "RepositoryFaceFinder.hpp"
 #include "FaceFinder.hpp"
 
@@ -66,7 +51,7 @@ int main(int argc, char** argv)
                     configFile>>quantile;
                 }
                 else {
-                    cout<<"error :"<<configFile<<" doesn't exist as a parameter"<<endl;
+                    cout<<"error :"<<element<<" doesn't exist as a parameter"<<endl;
                     return -1;
                 }
             }
@@ -110,7 +95,7 @@ int main(int argc, char** argv)
             else {
                 cout<<"face finding for only one image"<<endl;
                 string inputImageDirectName=inputFileName;
-                int lastindex = inputFileName.find_last_of("/");
+                unsigned int lastindex = inputFileName.find_last_of("/");
                 if (lastindex<=inputFileName.size()){
                     inputImageDirectName=inputFileName.substr(lastindex+1, inputFileName.size());
                 }
@@ -125,7 +110,7 @@ int main(int argc, char** argv)
                 }
                 vector<string> resultsText=faceFinder->FindFace(inputFileName,outputFileName+ "/" + inputImageDirectName);
                 ofstream resultsFile (resultFileName.c_str(), ofstream::out);
-                for (int j=0;j<resultsText.size();j++){
+                for (unsigned int j=0;j<resultsText.size();j++){
                     resultsFile<<resultsText[j]<<endl;
                 }
                 resultsFile.close();

@@ -7816,7 +7816,7 @@
 
 1448555584 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/MyPixel.hpp
 
-1448555584 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/Drawer.cpp
+1448656213 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/Drawer.cpp
 	"Drawer.hpp"
 
 1448555584 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/Drawer.hpp
@@ -7826,7 +7826,7 @@
 	<vector>
 	"WindowInformation.hpp"
 
-1448650561 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/FaceFinder.cpp
+1448656246 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/FaceFinder.cpp
 	"FaceFinder.hpp"
 
 1448559733 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/FaceFinder.hpp
@@ -7856,18 +7856,7 @@
 	<vector>
 	"Window.hpp"
 
-1448650972 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/main.cpp
-	<caffe/caffe.hpp>
-	<opencv2/core/core.hpp>
-	<opencv2/highgui/highgui.hpp>
-	<opencv2/imgproc/imgproc.hpp>
-	<algorithm>
-	<iosfwd>
-	<memory>
-	<string>
-	<utility>
-	<vector>
-	<sys/stat.h>
+1448656270 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/main.cpp
 	"RepositoryFaceFinder.hpp"
 	"FaceFinder.hpp"
 
@@ -7878,7 +7867,7 @@
 	<string>
 	<sys/stat.h>
 
-1448556151 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/RepositoryFaceFinder.cpp
+1448656287 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/RepositoryFaceFinder.cpp
 	"RepositoryFaceFinder.hpp"
 
 1448555584 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/Window.cpp
