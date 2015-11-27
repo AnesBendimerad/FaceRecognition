@@ -1,0 +1,6 @@
+inputFile AFW3
+outputFile AFW2results
+resultFile AFWResults.txt
+modelFile facenet.prototxt
+trainedModelFile facenet.caffemodel
+maxInitialSize 300

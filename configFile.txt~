@@ -1,6 +1,0 @@
-inputFile images2
-outputFile results2
-resultFile afwResults.txt
-modelFile facenet_train_test.prototxt
-trainedModelFile facenet.caffemodel
-maxInitialSize 300
