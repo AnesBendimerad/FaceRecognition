@@ -7784,3 +7784,109 @@
 1448555584 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/WindowsIterator.cpp
 	"WindowsIterator.hpp"
 
+1448558947 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/Classifier.cpp
+	"Classifier.hpp"
+
+1448558951 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/Classifier.hpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+
+1448559106 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/Cleaner.cpp
+	"Cleaner.h"
+	<fstream>
+	<iostream>
+	<string>
+
+1448559077 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/Cleaner.h
+	"WindowInformation.hpp"
+
+1448555584 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/WindowInformation.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	"MyPixel.hpp"
+
+1448555584 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/MyPixel.hpp
+
+1448555584 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/Drawer.cpp
+	"Drawer.hpp"
+
+1448555584 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/Drawer.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<vector>
+	"WindowInformation.hpp"
+
+1448650561 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/FaceFinder.cpp
+	"FaceFinder.hpp"
+
+1448559733 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/FaceFinder.hpp
+	<string>
+	"Window.hpp"
+	"Classifier.hpp"
+	"WindowsIterator.hpp"
+	"Drawer.hpp"
+	"Cleaner.h"
+
+1448555584 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/Window.hpp
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	"WindowInformation.hpp"
+
+1448555584 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/WindowsIterator.hpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+	"Window.hpp"
+
+1448650972 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/main.cpp
+	<caffe/caffe.hpp>
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<algorithm>
+	<iosfwd>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+	<sys/stat.h>
+	"RepositoryFaceFinder.hpp"
+	"FaceFinder.hpp"
+
+1448555584 /home/bendimerad/Desktop/PDC2/FaceRecognition/src/RepositoryFaceFinder.hpp
+	"FaceFinder.hpp"
+	<dirent.h>
+	<fstream>
+	<string>
+	<sys/stat.h>
+
+1448556151 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/RepositoryFaceFinder.cpp
+	"RepositoryFaceFinder.hpp"
+
+1448555584 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/Window.cpp
+	"Window.hpp"
+
+1448555584 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/WindowInformation.cpp
+	"WindowInformation.hpp"
+
+1448555584 source:/home/bendimerad/Desktop/PDC2/FaceRecognition/src/WindowsIterator.cpp
+	"WindowsIterator.hpp"
+
