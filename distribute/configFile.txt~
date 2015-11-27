@@ -4,5 +4,3 @@ resultFile AFWResults.txt
 modelFile facenet.prototxt
 trainedModelFile facenet.caffemodel
 maxInitialSize 300
-faceThreshold 0.5
-quantile 0.1
